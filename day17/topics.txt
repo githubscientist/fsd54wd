@@ -1,0 +1,8 @@
+Promise
+ - What is a promise?
+ - Promise States
+ - Promise chain
+ - promise.all()
+ - Use of fetch() & then()
+
+ openweathermap.org API KEY: 9b3abd72af5e8ee4c215adb53b59b0e5

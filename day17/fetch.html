@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fetch and Then</title>
+    </head>
+    <body>
+        <script>
+            // async function fetchData(){
+            //     // use fetch() library to get data from a url https://restcountries.com/v3.1/all
+            //     // use then() to parse the data and display the name, capital and flag of each country
+            //     // fetch returns a promise
+            //     const data = await fetch('https://restcountries.com/v3.1/all')
+                    
+            //     console.log('data fetched');
+            //     const countries = await data.json();
+            //     console.log(countries);
+            // }
+
+            // fetchData();
+
+            fetch('https://restcountries.com/v3.1/all')
+                .then(response => response.json())
+                .then(data => {
+
+                    // const flags = [];
+
+                    // data.forEach(country => {
+                    //     flags.push(country.flag);
+                    // })
+
+                    // console.log(flags.join(' '));
+
+                    for(let i=0; i<data.length; i++){
+                        if(data[i].name.common === 'Ireland'){
+                            console.log(data[i].flag);
+                        }
+                    }
+                })
+                .catch(error => console.log(error));
+        </script>
+    </body>
+</html>

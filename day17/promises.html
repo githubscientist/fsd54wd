@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Promise and Promise States</title>
+    </head>
+    <body>
+        <h2>Promises and Promise States</h2>
+        <script>
+            let promise = new Promise((resolve, reject) => {
+                // randomly generate a number between 0 and 10
+                let randomNumber = Math.round(Math.random() * 10);
+
+                // print the generated random number
+                console.log(`Generated random number is ${randomNumber}`);
+
+                // depending on the generated random number, either resolve or reject the promise after 5 seconds
+                if(randomNumber > 5){
+                    setTimeout(() => {
+                        resolve(randomNumber);
+                    }, 5000);
+                } else {
+                    setTimeout(() => {
+                        reject(randomNumber);
+                    }, 5000);
+                }
+            });
+
+            // print the promise initial state
+            console.log(promise);
+
+            // attach the callback functions to the promise
+            promise
+                .then((result) => {
+                    console.log('Promise resolved:', result);
+                })
+                .catch((result) => {
+                    console.log('Promise rejected:', result);
+                });
+            
+            // print the promise final state
+            setTimeout(() => {
+                // print the promise state alone
+                console.log(promise);
+            }, 6000);
+        </script>
+    </body>
+</html>
